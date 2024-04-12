@@ -14,4 +14,6 @@ public interface CityService {
     City update(City city);
 
     boolean delete(Long id);
+
+    List<City> searchCitiesByName(String query);
 }

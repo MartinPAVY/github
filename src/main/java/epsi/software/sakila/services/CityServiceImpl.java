@@ -3,9 +3,11 @@ package epsi.software.sakila.services;
 
 import epsi.software.sakila.entities.City;
 import epsi.software.sakila.repositories.CityRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CityServiceImpl implements CityService {
 
 
@@ -38,5 +40,10 @@ public class CityServiceImpl implements CityService {
     @Override
     public boolean delete(Long id) {
         return false;
+    }
+
+    @Override
+    public List<City> searchCitiesByName(String query) {
+        return cityRepository.findCityByCityIsContaining(query);
     }
 }
